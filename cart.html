@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja - Toko Bu Siti</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-cookie-bite"></i> Toko Bu Siti
+        </a>
+        <div class="nav-links">
+          <a href="index.html" class="btn btn-outline-primary">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="history.html" class="btn btn-outline-info">
+            <i class="fas fa-history"></i> Riwayat
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+      <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Cart Items -->
+          <div class="cart-container" id="cart-items">
+            <!-- Items will be loaded here -->
+          </div>
+
+          <!-- Empty Cart Message -->
+          <div id="empty-cart" class="text-center py-5">
+            <i class="fas fa-shopping-cart fa-4x text-muted mb-3"></i>
+            <h4>Keranjang Anda kosong</h4>
+            <p>Silakan tambahkan produk terlebih dahulu</p>
+            <a href="index.html#produk" class="btn btn-primary">
+              <i class="fas fa-shopping-bag"></i> Belanja Sekarang
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <!-- Order Summary -->
+          <div class="order-summary">
+            <h4><i class="fas fa-receipt"></i> Ringkasan Pesanan</h4>
+            <div class="summary-details">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">Rp 0</span>
+              </div>
+              <div class="summary-row">
+                <span>Ongkos Kirim</span>
+                <span id="shipping">Rp 10.000</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">Rp 10.000</span>
+              </div>
+            </div>
+            <button
+              id="checkout-btn"
+              class="btn btn-success btn-block"
+              disabled
+            >
+              <i class="fas fa-credit-card"></i> Lanjut ke Pembayaran
+            </button>
+            <a
+              href="index.html#produk"
+              class="btn btn-outline-primary btn-block"
+            >
+              <i class="fas fa-plus"></i> Tambah Produk Lain
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+      <div class="container text-center">
+        <p>&copy; 2026 Toko Kue Sagon Bu Siti. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
+    <script src="cart.js"></script>
+  </body>
+</html>

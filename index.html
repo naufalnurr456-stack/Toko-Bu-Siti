@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Kue Sagon Bu Siti - Jual Beli Online</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header dengan Navigasi -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-cookie-bite"></i> Toko Bu Siti
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#produk">Produk</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#toko">Toko</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">
+                <i class="fas fa-shopping-cart"></i> Keranjang
+                <span id="cart-count" class="badge badge-danger">0</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="history.html">
+                <i class="fas fa-history"></i> Riwayat
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1 class="judul-utama">Selamat Datang di Toko Kue Sagon Bu Siti</h1>
+        <p class="konten">
+          Kue tradisional autentik dengan cita rasa lezat dan harga terjangkau
+        </p>
+        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+      </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="about">
+      <div class="container">
+        <h2><i class="fas fa-store"></i> Tentang Kami</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Rumah produksi kami sudah mulai beroperasi sejak tahun 2015 sampai
+              saat ini. Rumah produksi ini memproduksi makanan tradisional yaitu
+              "Kue Sagon".
+            </p>
+            <p>
+              Kue Sagon adalah makanan tradisional yang terbuat dari Kelapa
+              parut tua (disangrai) Tepung ketan, Gula pasir atau gula halus
+              Garam. Kami berkomitmen untuk menyajikan kue yang sehat, lezat,
+              dan autentik. Kue Sagon kami sudah dipasarkan di berbagai
+              toko-toko sekitar rumah dan ada yang sampai luar kota. Produksi
+              meningkat signifikan saat mendekati Hari Raya Idul Fitri karena
+              banyak diminati. Lokasi rumah produksi kami ada di Desa
+              Ambarwinangun kec.Ambal Kab.Kebumen
+            </p>
+            <div class="features">
+              <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <span>Bahan Alami</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-clock"></i>
+                <span>Fresh Daily</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-truck"></i>
+                <span>Gratis Ongkir</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="img/rumah produksi.jpg" alt="Rumah Produksi Bu Siti" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produk Kami -->
+    <section id="produk" class="products">
+      <div class="container">
+        <h2><i class="fas fa-cookie-bite"></i> Produk Kami</h2>
+        <p class="section-subtitle">Pilih varian favorit Anda</p>
+
+        <div class="row product-grid">
+          <!-- Product 1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-image">
+                <img
+                  src="img/produk sagonoriginal.jpg"
+                  alt="Kue Sagon Original"
+                />
+                <span class="product-badge">BEST SELLER</span>
+              </div>
+              <div class="product-info">
+                <h3>Kue Sagon Original</h3>
+                <p class="product-desc">
+                  Rasa original dengan kelapa parut pilihan
+                </p>
+                <div class="price">Rp 25.000 <span>/pack</span></div>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span>(128 ulasan)</span>
+                </div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-outline-primary btn-detail"
+                    data-id="1"
+                  >
+                    <i class="fas fa-info-circle"></i> Detail
+                  </button>
+                  <button class="btn btn-success btn-add-to-cart" data-id="1">
+                    <i class="fas fa-cart-plus"></i> Tambah
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="img/produk sagoncoklat.jpg" alt="Kue Sagon Coklat" />
+                <span class="product-badge">NEW</span>
+              </div>
+              <div class="product-info">
+                <h3>Kue Sagon Coklat</h3>
+                <p class="product-desc">
+                  Perpaduan coklat premium dengan kelapa
+                </p>
+                <div class="price">Rp 30.000 <span>/pack</span></div>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(96 ulasan)</span>
+                </div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-outline-primary btn-detail"
+                    data-id="2"
+                  >
+                    <i class="fas fa-info-circle"></i> Detail
+                  </button>
+                  <button class="btn btn-success btn-add-to-cart" data-id="2">
+                    <i class="fas fa-cart-plus"></i> Tambah
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="img/produk sagonkeju.jpg" alt="Kue Sagon Keju" />
+                <span class="product-badge">FAVORITE</span>
+              </div>
+              <div class="product-info">
+                <h3>Kue Sagon Keju</h3>
+                <p class="product-desc">
+                  Keju parut dengan taburan kelapa gurih
+                </p>
+                <div class="price">Rp 30.000 <span>/pack</span></div>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span>(87 ulasan)</span>
+                </div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-outline-primary btn-detail"
+                    data-id="3"
+                  >
+                    <i class="fas fa-info-circle"></i> Detail
+                  </button>
+                  <button class="btn btn-success btn-add-to-cart" data-id="3">
+                    <i class="fas fa-cart-plus"></i> Tambah
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Informasi Toko -->
+    <section id="toko" class="store">
+      <div class="container">
+        <h2><i class="fas fa-map-marker-alt"></i> Informasi Toko</h2>
+        <div class="store-info-grid">
+          <div class="store-card">
+            <i class="fas fa-home"></i>
+            <h4>Alamat</h4>
+            <p>Jl. Raya Ambarwinangun,<br />Leter Tengah, Rt:4 Rw:02</p>
+          </div>
+          <div class="store-card">
+            <i class="fas fa-clock"></i>
+            <h4>Jam Operasional</h4>
+            <p>Setiap Hari: 08.00 - 16.00</p>
+          </div>
+          <div class="store-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Kontak</h4>
+            <p>WhatsApp: 0895-3773-08366</p>
+            <a
+              href="https://wa.me/62895377308366"
+              class="btn btn-success"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Detail Produk -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detail Produk</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="modal-product-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>Toko Bu Siti</h5>
+            <p>Kue tradisional dengan cita rasa autentik sejak 2015</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Link Cepat</h5>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#produk">Produk</a></li>
+              <li><a href="cart.html">Keranjang</a></li>
+              <li><a href="history.html">Riwayat</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Metode Pembayaran</h5>
+            <div class="payment-methods">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i>
+              <i class="fas fa-university"></i>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center">
+          &copy; 2026 Toko Kue Sagon Bu Siti. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

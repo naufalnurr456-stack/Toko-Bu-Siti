@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Toko Bu Siti</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="checkout.css" />
+  </head>
+  <body>
+    <!-- Checkout Steps -->
+    <div class="checkout-steps">
+      <div class="container">
+        <div class="steps">
+          <div class="step active">
+            <span class="step-number">1</span>
+            <span class="step-text">Keranjang</span>
+          </div>
+          <div class="step active">
+            <span class="step-number">2</span>
+            <span class="step-text">Checkout</span>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-text">Pembayaran</span>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <span class="step-text">Selesai</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <h2><i class="fas fa-shopping-bag"></i> Checkout</h2>
+
+      <div class="row">
+        <!-- Form Data Pengiriman -->
+        <div class="col-lg-7">
+          <div class="checkout-form">
+            <h4><i class="fas fa-user"></i> Data Diri</h4>
+            <form id="checkout-form">
+              <div class="form-group">
+                <label>Nama Lengkap *</label>
+                <input type="text" class="form-control" id="nama" required />
+              </div>
+              <div class="form-group">
+                <label>Nomor Telepon *</label>
+                <input type="tel" class="form-control" id="telepon" required />
+              </div>
+              <div class="form-group">
+                <label>Alamat Lengkap *</label>
+                <textarea
+                  class="form-control"
+                  id="alamat"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label>Kota *</label>
+                <input type="text" class="form-control" id="kota" required />
+              </div>
+              <div class="form-group">
+                <label>Kode Pos</label>
+                <input type="text" class="form-control" id="kodepos" />
+              </div>
+              <div class="form-group">
+                <label>Catatan (Opsional)</label>
+                <textarea class="form-control" id="catatan" rows="2"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-5">
+          <div class="order-review">
+            <h4><i class="fas fa-clipboard-list"></i> Ringkasan Pesanan</h4>
+            <div id="order-items" class="order-items">
+              <!-- Items will be loaded here -->
+            </div>
+            <div class="order-total">
+              <div class="total-row">
+                <span>Subtotal</span>
+                <span id="review-subtotal">Rp 0</span>
+              </div>
+              <div class="total-row">
+                <span>Ongkos Kirim</span>
+                <span id="review-shipping">Rp 10.000</span>
+              </div>
+              <div class="total-row grand-total">
+                <span>Total Pembayaran</span>
+                <span id="review-total">Rp 10.000</span>
+              </div>
+            </div>
+
+            <h4 class="mt-4">
+              <i class="fas fa-credit-card"></i> Metode Pembayaran
+            </h4>
+            <div class="payment-methods">
+              <div class="payment-option">
+                <input
+                  type="radio"
+                  name="payment"
+                  id="bank-transfer"
+                  value="bank"
+                  checked
+                />
+                <label for="bank-transfer">
+                  <i class="fas fa-university"></i>
+                  <div>
+                    <strong>Transfer Bank</strong>
+                    <small>BNI, BRI, BCA, Mandiri</small>
+                  </div>
+                </label>
+              </div>
+              <div class="payment-option">
+                <input
+                  type="radio"
+                  name="payment"
+                  id="e-wallet"
+                  value="ewallet"
+                />
+                <label for="e-wallet">
+                  <i class="fas fa-mobile-alt"></i>
+                  <div>
+                    <strong>E-Wallet</strong>
+                    <small>OVO, GoPay, Dana, ShopeePay</small>
+                  </div>
+                </label>
+              </div>
+              <div class="payment-option">
+                <input type="radio" name="payment" id="cod" value="cod" />
+                <label for="cod">
+                  <i class="fas fa-money-bill-wave"></i>
+                  <div>
+                    <strong>COD</strong>
+                    <small>Bayar di Tempat</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <button
+              id="place-order-btn"
+              class="btn btn-success btn-lg btn-block mt-4"
+            >
+              <i class="fas fa-check-circle"></i> Buat Pesanan
+            </button>
+            <a href="cart.html" class="btn btn-outline-secondary btn-block">
+              <i class="fas fa-arrow-left"></i> Kembali ke Keranjang
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Pesanan Berhasil!</h5>
+          </div>
+          <div class="modal-body text-center">
+            <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
+            <h4>Terima kasih telah berbelanja</h4>
+            <p>Pesanan Anda telah diterima dan akan segera diproses.</p>
+            <div class="order-info">
+              <p>
+                <strong>No. Pesanan:</strong>
+                <span id="order-number">#ORD001</span>
+              </p>
+              <p>
+                <strong>Total:</strong> <span id="order-total-modal">Rp 0</span>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="location.href='index.html'"
+            >
+              <i class="fas fa-home"></i> Kembali ke Home
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              onclick="location.href='history.html'"
+            >
+              <i class="fas fa-history"></i> Lihat Riwayat
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="checkout.js"></script>
+  </body>
+</html>

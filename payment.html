@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran - Toko Kue Sagon Bu Siti</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="payment.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-cookie-bite text-warning"></i>
+          <span class="ml-2 font-weight-bold text-brown">Toko Bu Siti</span>
+        </a>
+        <div class="navbar-text">
+          <span class="badge badge-brown">Pembayaran</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Payment Steps -->
+    <div class="payment-steps">
+      <div class="container">
+        <div class="steps">
+          <div class="step completed">
+            <div class="step-number">1</div>
+            <div class="step-label">Keranjang</div>
+          </div>
+          <div class="step completed">
+            <div class="step-number">2</div>
+            <div class="step-label">Checkout</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">3</div>
+            <div class="step-label">Pembayaran</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Selesai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+      <div class="row">
+        <!-- Left Column - Payment Methods -->
+        <div class="col-lg-8">
+          <!-- Order Summary -->
+          <div class="card mb-4">
+            <div class="card-header bg-brown text-white">
+              <h5 class="mb-0">
+                <i class="fas fa-receipt"></i> Ringkasan Pesanan
+              </h5>
+            </div>
+            <div class="card-body">
+              <div id="order-summary">
+                <!-- Order details will be loaded here -->
+              </div>
+              <div class="order-total mt-3 pt-3 border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Total Pembayaran</h5>
+                  <h3 class="mb-0 text-brown" id="total-payment">Rp 0</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="card mb-4">
+            <div class="card-header bg-brown text-white">
+              <h5 class="mb-0">
+                <i class="fas fa-credit-card"></i> Pilih Metode Pembayaran
+              </h5>
+            </div>
+            <div class="card-body">
+              <!-- Bank Transfer -->
+              <div class="payment-method mb-4">
+                <div class="method-header">
+                  <input
+                    type="radio"
+                    name="payment-method"
+                    id="bank-transfer"
+                    value="bank"
+                    checked
+                  />
+                  <label for="bank-transfer" class="method-label">
+                    <i class="fas fa-university"></i>
+                    <div>
+                      <h6 class="mb-1">Transfer Bank</h6>
+                      <p class="mb-0 text-muted">
+                        Transfer ke rekening bank kami
+                      </p>
+                    </div>
+                  </label>
+                </div>
+                <div class="method-content" id="bank-content">
+                  <div class="bank-accounts">
+                    <div class="bank-account">
+                      <div class="bank-logo bca">
+                        <i class="fas fa-university"></i>
+                      </div>
+                      <div class="bank-details">
+                        <h6>Bank BCA</h6>
+                        <p class="mb-1">
+                          No. Rekening: <strong>123 456 7890</strong>
+                        </p>
+                        <p class="mb-1">Atas Nama: <strong>Bu Siti</strong></p>
+                      </div>
+                    </div>
+                    <div class="bank-account">
+                      <div class="bank-logo bri">
+                        <i class="fas fa-university"></i>
+                      </div>
+                      <div class="bank-details">
+                        <h6>Bank BRI</h6>
+                        <p class="mb-1">
+                          No. Rekening: <strong>0987 654 321</strong>
+                        </p>
+                        <p class="mb-1">Atas Nama: <strong>Bu Siti</strong></p>
+                      </div>
+                    </div>
+                    <div class="bank-account">
+                      <div class="bank-logo mandiri">
+                        <i class="fas fa-university"></i>
+                      </div>
+                      <div class="bank-details">
+                        <h6>Bank Mandiri</h6>
+                        <p class="mb-1">
+                          No. Rekening: <strong>5678 901 234</strong>
+                        </p>
+                        <p class="mb-1">Atas Nama: <strong>Bu Siti</strong></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="payment-instructions mt-3">
+                    <h6><i class="fas fa-info-circle"></i> Cara Pembayaran:</h6>
+                    <ol>
+                      <li>
+                        Transfer sesuai total pembayaran ke salah satu rekening
+                        di atas
+                      </li>
+                      <li>Simpan bukti transfer (screenshot atau foto)</li>
+                      <li>Unggah bukti transfer di form di bawah</li>
+                      <li>
+                        Klik "Konfirmasi Pembayaran" untuk menyelesaikan proses
+                      </li>
+                    </ol>
+                  </div>
+
+                  <!-- Upload Proof -->
+                  <div class="upload-section mt-4">
+                    <h6>
+                      <i class="fas fa-cloud-upload-alt"></i> Unggah Bukti
+                      Transfer
+                    </h6>
+                    <div class="upload-area" id="upload-area">
+                      <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                      <p>Seret file ke sini atau klik untuk memilih</p>
+                      <p class="small text-muted">
+                        Format: JPG, PNG, PDF (Maks. 5MB)
+                      </p>
+                      <input
+                        type="file"
+                        id="payment-proof"
+                        accept="image/*,.pdf"
+                        hidden
+                      />
+                    </div>
+                    <div
+                      class="file-preview mt-3"
+                      id="file-preview"
+                      style="display: none"
+                    >
+                      <div class="preview-item">
+                        <i class="fas fa-file-image"></i>
+                        <div class="preview-info">
+                          <span id="file-name"></span>
+                          <span id="file-size" class="text-muted"></span>
+                        </div>
+                        <button class="btn-remove-file" onclick="removeFile()">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- E-Wallet -->
+              <div class="payment-method mb-4">
+                <div class="method-header">
+                  <input
+                    type="radio"
+                    name="payment-method"
+                    id="e-wallet"
+                    value="ewallet"
+                  />
+                  <label for="e-wallet" class="method-label">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                      <h6 class="mb-1">E-Wallet / QRIS</h6>
+                      <p class="mb-0 text-muted">
+                        Bayar dengan e-wallet favorit Anda
+                      </p>
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="method-content"
+                  id="ewallet-content"
+                  style="display: none"
+                >
+                  <div class="qris-section text-center">
+                    <div class="qris-code">
+                      <div class="qris-placeholder">
+                        <i class="fas fa-qrcode fa-5x"></i>
+                        <p class="mt-3">Scan QR Code untuk pembayaran</p>
+                      </div>
+                    </div>
+                    <div class="ewallet-options mt-4">
+                      <h6 class="mb-3">Pilih E-Wallet:</h6>
+                      <div class="row">
+                        <div class="col-4">
+                          <button class="ewallet-btn">
+                            <i class="fab fa-gopay"></i>
+                            <span>GoPay</span>
+                          </button>
+                        </div>
+                        <div class="col-4">
+                          <button class="ewallet-btn">
+                            <i class="fas fa-wallet"></i>
+                            <span>OVO</span>
+                          </button>
+                        </div>
+                        <div class="col-4">
+                          <button class="ewallet-btn">
+                            <i class="fas fa-coins"></i>
+                            <span>Dana</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COD -->
+              <div class="payment-method">
+                <div class="method-header">
+                  <input
+                    type="radio"
+                    name="payment-method"
+                    id="cod"
+                    value="cod"
+                  />
+                  <label for="cod" class="method-label">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div>
+                      <h6 class="mb-1">Bayar di Tempat (COD)</h6>
+                      <p class="mb-0 text-muted">Bayar ketika pesanan sampai</p>
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="method-content"
+                  id="cod-content"
+                  style="display: none"
+                >
+                  <div class="cod-info">
+                    <div class="alert alert-info">
+                      <i class="fas fa-info-circle"></i>
+                      <div>
+                        <h6>Informasi COD</h6>
+                        <p class="mb-0">
+                          Anda akan membayar secara tunai ketika pesanan sampai
+                          di alamat Anda. Pastikan Anda menyiapkan uang pas
+                          sesuai total pembayaran.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="cod-terms">
+                      <h6>
+                        <i class="fas fa-clipboard-check"></i> Syarat &
+                        Ketentuan:
+                      </h6>
+                      <ul>
+                        <li>Pesanan akan diproses setelah konfirmasi</li>
+                        <li>Pembayaran dilakukan secara tunai kepada kurir</li>
+                        <li>Siapkan uang pas tanpa kembalian</li>
+                        <li>Pastikan alamat pengiriman sudah benar</li>
+                        <li>Pesanan COD hanya berlaku untuk area tertentu</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Notes -->
+          <div class="card">
+            <div class="card-header bg-light">
+              <h6 class="mb-0"><i class="fas fa-edit"></i> Catatan Tambahan</h6>
+            </div>
+            <div class="card-body">
+              <textarea
+                class="form-control"
+                id="payment-notes"
+                rows="3"
+                placeholder="Tambahkan catatan untuk pesanan Anda (opsional)..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Payment Summary -->
+        <div class="col-lg-4">
+          <!-- Order Details -->
+          <div class="card mb-4">
+            <div class="card-header bg-light">
+              <h6 class="mb-0">
+                <i class="fas fa-shopping-cart"></i> Detail Pesanan
+              </h6>
+            </div>
+            <div class="card-body">
+              <div id="order-details">
+                <!-- Order items will be loaded here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Information -->
+          <div class="card mb-4">
+            <div class="card-header bg-light">
+              <h6 class="mb-0">
+                <i class="fas fa-user"></i> Informasi Pemesan
+              </h6>
+            </div>
+            <div class="card-body">
+              <div id="customer-info">
+                <!-- Customer info will be loaded here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Action -->
+          <div class="card">
+            <div class="card-body">
+              <div class="payment-timer mb-3" id="payment-timer">
+                <div class="timer-header">
+                  <i class="fas fa-clock"></i>
+                  <span>Batas Waktu Pembayaran</span>
+                </div>
+                <div class="timer-display">
+                  <div class="timer-item">
+                    <span id="timer-hours">23</span>
+                    <small>Jam</small>
+                  </div>
+                  <div class="timer-separator">:</div>
+                  <div class="timer-item">
+                    <span id="timer-minutes">59</span>
+                    <small>Menit</small>
+                  </div>
+                  <div class="timer-separator">:</div>
+                  <div class="timer-item">
+                    <span id="timer-seconds">59</span>
+                    <small>Detik</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="payment-terms mb-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="agree-terms"
+                  />
+                  <label class="form-check-label" for="agree-terms">
+                    Saya telah membaca dan menyetujui
+                    <a href="#" data-toggle="modal" data-target="#termsModal"
+                      >syarat & ketentuan</a
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-brown btn-lg btn-block"
+                id="confirm-payment"
+                disabled
+              >
+                <i class="fas fa-check-circle"></i> Konfirmasi Pembayaran
+              </button>
+
+              <div class="text-center mt-3">
+                <a
+                  href="checkout.html"
+                  class="btn btn-outline-secondary btn-sm"
+                >
+                  <i class="fas fa-arrow-left"></i> Kembali ke Checkout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Syarat & Ketentuan</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>1. Ketentuan Umum</h6>
+            <p>
+              Dengan menggunakan layanan pembayaran ini, Anda menyetujui semua
+              syarat dan ketentuan yang berlaku.
+            </p>
+
+            <h6 class="mt-4">2. Metode Pembayaran</h6>
+            <p>
+              Kami menyediakan beberapa metode pembayaran: Transfer Bank,
+              E-Wallet, dan COD.
+            </p>
+
+            <h6 class="mt-4">3. Konfirmasi Pembayaran</h6>
+            <p>
+              Pesanan akan diproses setelah pembayaran terkonfirmasi. Konfirmasi
+              manual membutuhkan waktu 1-3 jam.
+            </p>
+
+            <h6 class="mt-4">4. Batas Waktu Pembayaran</h6>
+            <p>
+              Setiap pesanan memiliki batas waktu pembayaran 24 jam. Jika
+              melebihi batas waktu, pesanan akan dibatalkan.
+            </p>
+
+            <h6 class="mt-4">5. Pengembalian Dana</h6>
+            <p>
+              Pengembalian dana hanya dilakukan jika ada kesalahan sistem atau
+              pembatalan dari pihak kami.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-brown" data-dismiss="modal">
+              Mengerti
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body text-center py-5">
+            <div class="success-icon mb-4">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h4 class="mb-3">Pembayaran Berhasil!</h4>
+            <p>Terima kasih telah berbelanja di Toko Bu Siti</p>
+            <div class="payment-info mt-4">
+              <p>
+                <strong>No. Pesanan:</strong>
+                <span id="success-order-id">-</span>
+              </p>
+              <p>
+                <strong>Total Pembayaran:</strong>
+                <span id="success-total">Rp 0</span>
+              </p>
+              <p>
+                <strong>Status:</strong>
+                <span class="badge badge-success">Dibayar</span>
+              </p>
+            </div>
+            <div class="mt-4">
+              <button class="btn btn-brown" onclick="goToHistory()">
+                <i class="fas fa-history"></i> Lihat Riwayat
+              </button>
+              <button class="btn btn-outline-brown" onclick="printReceipt()">
+                <i class="fas fa-print"></i> Cetak Nota
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Butuh Bantuan?</h5>
+            <p>
+              <i class="fas fa-headset"></i> Customer Service: 0895-3773-08366
+            </p>
+            <p><i class="fas fa-envelope"></i> Email: bu_siti@sagon.com</p>
+          </div>
+          <div class="col-md-6 text-md-right">
+            <h5>Jam Operasional</h5>
+            <p>Senin - Minggu: 08.00 - 20.00 WIB</p>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center">
+          <p>
+            &copy; 2024 Toko Kue Sagon Bu Siti. Sistem pembayaran aman dan
+            terpercaya.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="payment.js"></script>
+  </body>
+</html>

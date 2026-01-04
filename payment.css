@@ -1,0 +1,646 @@
+/* Payment Page Styles */
+:root {
+  --primary-brown: #8b4513;
+  --light-brown: #d2b48c;
+  --dark-brown: #654321;
+  --success: #28a745;
+  --warning: #ffc107;
+  --info: #17a2b8;
+  --danger: #dc3545;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* Navigation */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-brown {
+  background: var(--primary-brown);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* Payment Steps */
+.payment-steps {
+  background: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -50%;
+  right: 50%;
+  height: 3px;
+  background: #dee2e6;
+  z-index: -1;
+}
+
+.step:first-child::before {
+  display: none;
+}
+
+.step.completed::before {
+  background: var(--success);
+}
+
+.step.active::before {
+  background: var(--primary-brown);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dee2e6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.step.completed .step-number {
+  background: var(--success);
+}
+
+.step.active .step-number {
+  background: var(--primary-brown);
+  transform: scale(1.1);
+  box-shadow: 0 0 0 5px rgba(139, 69, 19, 0.2);
+}
+
+.step-label {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: var(--primary-brown);
+  font-weight: 600;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card-header {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding: 15px 20px;
+}
+
+.card-header.bg-brown {
+  background: linear-gradient(
+    45deg,
+    var(--primary-brown),
+    var(--dark-brown)
+  ) !important;
+}
+
+/* Order Summary */
+.order-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.order-summary-item:last-child {
+  border-bottom: none;
+}
+
+.order-total {
+  background: #f8f9fa;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: -20px;
+  padding: 20px;
+}
+
+/* Payment Methods */
+.payment-method {
+  border: 2px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.payment-method.active {
+  border-color: var(--primary-brown);
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+}
+
+.method-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.method-header:hover {
+  background: #e9ecef;
+}
+
+.method-header input[type="radio"] {
+  display: none;
+}
+
+.method-label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  cursor: pointer;
+  flex: 1;
+}
+
+.method-label i {
+  font-size: 24px;
+  color: var(--primary-brown);
+  width: 40px;
+}
+
+.method-label h6 {
+  margin: 0;
+  color: #333;
+}
+
+.method-content {
+  padding: 20px;
+  background: white;
+  display: block;
+}
+
+/* Bank Accounts */
+.bank-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bank-account {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: all 0.3s;
+}
+
+.bank-account:hover {
+  border-color: var(--primary-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bank-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 24px;
+  color: white;
+}
+
+.bank-logo.bca {
+  background: linear-gradient(45deg, #0066b3, #0099e6);
+}
+
+.bank-logo.bri {
+  background: linear-gradient(45deg, #0056a0, #0086d1);
+}
+
+.bank-logo.mandiri {
+  background: linear-gradient(45deg, #ff6b00, #ff8c00);
+}
+
+.bank-details h6 {
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.bank-details p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #f8f9fa;
+}
+
+.upload-area:hover {
+  border-color: var(--primary-brown);
+  background: rgba(139, 69, 19, 0.05);
+}
+
+.upload-area i {
+  color: var(--primary-brown);
+  margin-bottom: 15px;
+}
+
+.file-preview {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preview-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.preview-item i {
+  font-size: 24px;
+  color: var(--primary-brown);
+  margin-right: 15px;
+}
+
+.preview-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-remove-file {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btn-remove-file:hover {
+  color: #c82333;
+}
+
+/* QRIS Section */
+.qris-placeholder {
+  padding: 40px;
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+}
+
+.qris-placeholder i {
+  color: var(--primary-brown);
+  opacity: 0.5;
+}
+
+.ewallet-btn {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.ewallet-btn:hover {
+  border-color: var(--primary-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ewallet-btn i {
+  font-size: 24px;
+  color: var(--primary-brown);
+}
+
+/* COD Info */
+.cod-info .alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-left: 4px solid var(--info);
+}
+
+.cod-info .alert i {
+  color: var(--info);
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+/* Payment Timer */
+.payment-timer {
+  background: linear-gradient(45deg, var(--primary-brown), var(--dark-brown));
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.timer-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: monospace;
+}
+
+.timer-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 5px 10px;
+  min-width: 40px;
+}
+
+.timer-item span {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+}
+
+.timer-item small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.timer-separator {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Order Details */
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-price {
+  color: var(--primary-brown);
+  font-weight: 600;
+}
+
+/* Customer Info */
+.customer-info-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+}
+
+.customer-info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.customer-info-item strong {
+  color: #333;
+  display: block;
+  margin-bottom: 3px;
+}
+
+/* Button Styles */
+.btn-brown {
+  background: linear-gradient(45deg, var(--primary-brown), var(--dark-brown));
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-brown:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+  color: white;
+}
+
+.btn-brown:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-brown {
+  color: var(--primary-brown);
+  border: 2px solid var(--primary-brown);
+  background: transparent;
+}
+
+.btn-outline-brown:hover {
+  background: var(--primary-brown);
+  color: white;
+}
+
+/* Success Modal */
+#successModal .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  border: none;
+}
+
+.success-icon {
+  font-size: 80px;
+  color: var(--success);
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.payment-info {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+}
+
+.payment-info p {
+  margin: 0 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+  background: var(--dark-brown);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+}
+
+.footer h5 {
+  color: var(--light-brown);
+  margin-bottom: 20px;
+}
+
+.footer i {
+  color: var(--light-brown);
+  margin-right: 10px;
+  width: 20px;
+}
+
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .steps {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .step {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .step::before {
+    display: none !important;
+  }
+
+  .bank-account {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bank-logo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .ewallet-btn {
+    padding: 10px;
+  }
+
+  .ewallet-btn i {
+    font-size: 20px;
+  }
+
+  .timer-display {
+    gap: 2px;
+  }
+
+  .timer-item {
+    min-width: 30px;
+    padding: 3px 5px;
+  }
+
+  .timer-item span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .step {
+    flex: 0 0 100%;
+  }
+
+  .bank-accounts {
+    gap: 10px;
+  }
+
+  .method-content {
+    padding: 15px;
+  }
+
+  .upload-area {
+    padding: 30px 15px;
+  }
+
+  .card-header {
+    padding: 12px 15px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+}
